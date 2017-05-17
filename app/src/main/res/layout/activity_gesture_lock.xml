@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.devwu.gesturelockviewgroup.demo.MainActivity">
+
+
+    <TextView
+        android:id="@+id/prompt_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingTop="40dp"
+        android:text="请绘制手势密码"
+        android:textColor="#858585"/>
+
+    <com.devwu.gesturelockviewgroup.GestureLockViewGroup
+        android:id="@+id/gesture_lock_view_group"
+        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+</LinearLayout>

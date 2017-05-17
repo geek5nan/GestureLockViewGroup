@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/lock_icon_bg_default" android:state_pressed="false" android:state_selected="false"/>
+    <item android:drawable="@drawable/lock_icon_bg_moving" android:state_pressed="true" android:state_selected="false" />
+    <item android:drawable="@drawable/lock_icon_bg_incorrect" android:state_pressed="false" android:state_selected="true" />
+    <item android:drawable="@drawable/lock_icon_bg_correct" android:state_pressed="true" android:state_selected="true"/>
+</selector>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GestureLockViewGroup">
+        <attr name="color_default" format="color"/>
+        <attr name="color_moving" format="color"/>
+        <attr name="color_correct" format="color"/>
+        <attr name="color_incorrect" format="color"/>
+        <attr name="count" format="integer"/>
+        <attr name="line_width" format="integer"/>
+    </declare-styleable>
+</resources>
