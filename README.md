@@ -1,16 +1,16 @@
-##GestureLockViewGroup
+## GestureLockViewGroup
 
-###介绍
+### 介绍
 **GestureLockViewGroup**是一个基于[GestureLock](https://github.com/autume/GestureLock.git)重构的手势锁控件，目标是打造为一个高内聚，低耦合，易于扩展的控件
 
->###原项目特性
+>### 原项目特性
 * 支持手势密码的绘制，并支持密码保存功能，解锁时自动比对密码给出结果
 * 封装了绘制密码的方法，比对两次密码是否一致，可以快捷地进行手势密码的设置
 * 可以设置密码输入错误后的重试次数上限
 * 可以自定义不同状态下手势密码图案的颜色
 * 可以自定义手势密码的触摸点数量（n*n）
 
-###功能改动
+### 功能改动
 * 抽象手势密码接口`PasswordProvider`，便于扩展
 * 抽象节点视图`GestureLockNodeView`，便于扩展
 * 将密码错误次数暴露给外部调用者，由调用者自行处理
@@ -18,7 +18,7 @@
 * 新增指引线宽度设置
 * 新增NodeViewProviderDraw、NodeViewProviderImage用于构造节点视图
 
-###使用方式
+### 使用方式
 1.添加GestureLockViewGroup
 
 ```
@@ -94,8 +94,8 @@ GestureLockViewGroup.setPasswordProvider(new PasswordProvider() {
 
 
 
-###导入方法
-#####1.在项目根部的`build.gradle`中添加`JitPack`仓库
+### 导入方法
+##### 1.在项目根部的`build.gradle`中添加`JitPack`仓库
 
 ````
 allprojects {
@@ -105,13 +105,17 @@ allprojects {
 	}
 }
 ````
-#####2. 在应用模块中添加如下依赖
+
+##### 2. 在应用模块中添加如下依赖
+
 ````
 dependencies {
         ...
         compile 'com.github.geek5nan:GestureLockViewGroup:1.0'
 }
 ````
-###鸣谢
+### 鸣谢
+
 源码提供 [@autume](https://github.com/autume)
+
 技术支持 [@shenbei1992](https://github.com/shenbei1992)
