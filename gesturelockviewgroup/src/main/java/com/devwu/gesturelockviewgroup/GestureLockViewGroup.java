@@ -213,9 +213,11 @@ public class GestureLockViewGroup extends RelativeLayout {
                 } else {
                     if (mVerifyListener != null) {
                         isCorrect = sPasswordProvider.getPassword().equals(mCurrentChooseString);
-                        //输入正确时恢复重试次数
+                        //输入正确时重置重试次数
                         mTryTimes = isCorrect ? 0 : mTryTimes + 1;
-                        mVerifyListener.onGestureVerify(isCorrect, this.mTryTimes);  //将结果回调
+                        if (mVerifyListener!=null) {
+                            mVerifyListener.onGestureVerify(isCorrect, this.mTryTimes);  //将结果回调
+                        }
                     }
                 }
                 drawWhenTouchUp();
