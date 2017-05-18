@@ -21,7 +21,7 @@
 ### 使用方式
 1.添加GestureLockViewGroup
 
-```
+```Java
 <com.devwu.gesturelockviewgroup.GestureLockViewGroup
         android:id="@+id/gesture_lock_view_group"
         android:layout_height="match_parent"
@@ -29,7 +29,7 @@
 ```
 2.设置密码验证回调方法
 
-````
+````Java
 mGestureLockViewGroup.setVerifyListener(new VerifyListener() {
     @Override
     public void onGestureVerify(boolean matched, int retryTimes) {
@@ -40,7 +40,7 @@ mGestureLockViewGroup.setVerifyListener(new VerifyListener() {
 
 3.设置密码设置回调方法
 
-````
+````Java
 mGestureLockViewGroup.setSettingListener(new SettingListener() {
     @Override
     public boolean onFirstInputComplete(int len) {
@@ -56,7 +56,7 @@ mGestureLockViewGroup.setSettingListener(new SettingListener() {
 
 4.自定义NodeView,详见Builder类
 
-```
+```Java
 //加载图片作为NodeView
 mGestureLockViewGroup.setNodeViewProvider(new NodeViewProviderImage.Builder(this).build());
 //使用绘制的NodeView
@@ -66,7 +66,7 @@ mGestureLockViewGroup.setNodeViewProvider(new NodeViewProviderDraw.Builder(this)
 
 5.自定义PasswordProvider,默认为PasswordProviderDefault
 
-```
+```Java
 GestureLockViewGroup.setPasswordProvider(new PasswordProvider() {
     @Override
     public String getPassword() {
@@ -97,7 +97,7 @@ GestureLockViewGroup.setPasswordProvider(new PasswordProvider() {
 ### 导入方法
 ##### 1.在项目根部的`build.gradle`中添加`JitPack`仓库
 
-````
+````Java
 allprojects {
 	repositories {
 		...
@@ -108,7 +108,7 @@ allprojects {
 
 ##### 2. 在应用模块中添加如下依赖
 
-````
+````Java
 dependencies {
         ...
         compile 'com.github.geek5nan:GestureLockViewGroup:1.0'
