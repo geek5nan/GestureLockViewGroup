@@ -12,6 +12,7 @@ import com.devwu.common.utils.ToastUtil;
 import com.devwu.gesturelockviewgroup.GestureLockViewGroup;
 import com.devwu.gesturelockviewgroup.listener.SettingListener;
 import com.devwu.gesturelockviewgroup.listener.VerifyListener;
+import com.devwu.gesturelockviewgroup.provider.nodeview.NodeViewProviderImage;
 import com.devwu.gesturelockviewgroupdemo.R;
 
 import java.lang.annotation.Retention;
@@ -51,15 +52,15 @@ public class GestureLockActivity extends AppCompatActivity {
             public void onGestureVerify(boolean matched, int retryTimes) {
                 if (matched) {
                     if (mState == STATE.RESET) {
-                        mGestureLockViewGroup.getPasswordProvider().removePassword();
-                        mGestureLockViewGroup.resetView();
+                        mGestureLockViewGroup.resetViewAndCleanPassword();
                         mPromptText.setText("请绘制新手势密码！");
+                        ToastUtil.showShort("此时点击返回键可关闭手势锁");
                     }else {
                         mPromptText.setText("手势密码正确");
                         ToastUtil.showShort("手势密码正确");
                         finish();
                         if (mState == STATE.VERIFY){
-
+                            //验证成功，此处可跳转至任意位置
                         }
                     }
                 } else {
@@ -103,6 +104,12 @@ public class GestureLockActivity extends AppCompatActivity {
                 }
             }
         });
+        mGestureLockViewGroup.setNodeViewProvider(new NodeViewProviderImage.Builder(this)
+                .setLockIconBgDrawables(R.drawable.lock_icon_bg_default,R.drawable.lock_icon_bg_moving,
+                        R.drawable.lock_icon_bg_incorrect,R.drawable.lock_icon_bg_correct)
+                .setLockIconArrowDrawables(R.drawable.lock_icon_arrow_default,R.drawable.lock_icon_arrow_moving,
+                        R.drawable.lock_icon_arrow_incorrect,R.drawable.lock_icon_arrow_correct)
+                .build());
     }
 
     private void initView() {
@@ -126,7 +133,11 @@ public class GestureLockActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 实际应用中需重写该方法，防止手势验证Activity被销毁
+     */
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
     }
 }

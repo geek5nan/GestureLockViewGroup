@@ -53,7 +53,7 @@ public class NodeViewProviderImage implements NodeViewProvider {
             return this;
         }
 
-        public Builder setLockIconBgDrawableDefault(int lockIconBgDrawableDefault, int lockIconBgDrawableMoving, int lockIconBgDrawableIncorrect, int lockIconBgDrawableCorrect) {
+        public Builder setLockIconBgDrawables(int lockIconBgDrawableDefault, int lockIconBgDrawableMoving, int lockIconBgDrawableIncorrect, int lockIconBgDrawableCorrect) {
             this.mLockIconBgDrawableDefault = lockIconBgDrawableDefault;
             this.mLockIconBgDrawableMoving = lockIconBgDrawableMoving;
             this.mLockIconBgDrawableIncorrect = lockIconBgDrawableIncorrect;
@@ -61,7 +61,7 @@ public class NodeViewProviderImage implements NodeViewProvider {
             return this;
         }
 
-        public Builder setLockIconArrowDrawableDefault(int lockIconArrowDrawableDefault, int lockIconArrowDrawableMoving, int lockIconArrowDrawableIncorrect, int lockIconArrowDrawableCorrect) {
+        public Builder setLockIconArrowDrawables(int lockIconArrowDrawableDefault, int lockIconArrowDrawableMoving, int lockIconArrowDrawableIncorrect, int lockIconArrowDrawableCorrect) {
             this.mLockIconArrowDrawableDefault = lockIconArrowDrawableDefault;
             this.mLockIconArrowDrawableMoving = lockIconArrowDrawableMoving;
             this.mLockIconArrowDrawableIncorrect = lockIconArrowDrawableIncorrect;
