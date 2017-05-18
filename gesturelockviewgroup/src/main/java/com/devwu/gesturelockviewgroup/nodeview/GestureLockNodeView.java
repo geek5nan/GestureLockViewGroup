@@ -23,10 +23,10 @@ public abstract class GestureLockNodeView extends View {
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target(ElementType.PARAMETER)
-    public @interface Statu {
-        int STATU_DEFAULT = 0;     //默认状态
-        int STATU_TOUCH_MOVE = 1;  //手势移动中
-        int STATU_TOUCH_UP = 2;    //手指抬起
+    public @interface State {
+        int STATE_DEFAULT = 0;     //默认状态
+        int STATE_TOUCH_MOVE = 1;  //手势移动中
+        int STATE_TOUCH_UP = 2;    //手指抬起
     }
 
     /**
@@ -34,7 +34,7 @@ public abstract class GestureLockNodeView extends View {
      *
      * @param canvas 旋转好的画布
      */
-    protected abstract void drawArrow(Canvas canvas, Paint paint, @Statu int currentStatus);
+    protected abstract void drawArrow(Canvas canvas, Paint paint, @State int currentState);
 
     /**
      * onMeasure回调方法
@@ -47,11 +47,11 @@ public abstract class GestureLockNodeView extends View {
      * onDraw回调方法，用于绘制圆心圆环及箭头
      *
      * @param canvas        画布
-     * @param currentStatus 当前手指状态
+     * @param currentState 当前手指状态
      */
-    protected abstract void doDraw(Canvas canvas, Paint paint, @Statu int currentStatus);
+    protected abstract void doDraw(Canvas canvas, Paint paint, @State int currentState);
 
-    private int mCurrentStatus = Statu.STATU_DEFAULT;
+    private int mState = State.STATE_DEFAULT;
     private Paint mPaint;
     private int mArrowDegree = -1;
 
@@ -73,12 +73,12 @@ public abstract class GestureLockNodeView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        doDraw(canvas, mPaint, mCurrentStatus);
+        doDraw(canvas, mPaint, mState);
         if (GestureLockViewGroup.isDebug) {
             mPaint.setTextSize(50);
             canvas.drawText(getId() + "", getWidth() / 2 - 25, getHeight() / 2 - 25, mPaint);
         }
-        if (mCurrentStatus == Statu.STATU_DEFAULT) {
+        if (mState == State.STATE_DEFAULT) {
             hideArrow();
         } else {
             rotateCanvasForArrow(canvas);
@@ -95,7 +95,7 @@ public abstract class GestureLockNodeView extends View {
             mPaint.setStyle(Paint.Style.FILL);
             canvas.save();
             canvas.rotate(mArrowDegree, getWidth() / 2, getHeight() / 2);
-            drawArrow(canvas, mPaint, mCurrentStatus);
+            drawArrow(canvas, mPaint, mState);
             canvas.restore();
         }
     }
@@ -110,10 +110,10 @@ public abstract class GestureLockNodeView extends View {
     /**
      * 设置当前模式并重绘界面
      *
-     * @param mode
+     * @param state
      */
-    public void setMode(@Statu int mode) {
-        this.mCurrentStatus = mode;
+    public void setState(@State int state) {
+        this.mState = state;
         invalidate();
     }
 

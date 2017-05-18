@@ -59,9 +59,9 @@ public class GestureLockNodeViewDraw extends GestureLockNodeView {
 
 
     @Override
-    protected void doDraw(Canvas canvas, Paint paint, @Statu int currentStatus) {
+    protected void doDraw(Canvas canvas, Paint paint, @State int currentState) {
         // 设置画笔颜色
-        paint.setColor(getPaintColor(currentStatus));
+        paint.setColor(getPaintColor(currentState));
         // 绘制外圆
         paint.setStyle(Style.STROKE);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, mRadius, paint);
@@ -91,16 +91,16 @@ public class GestureLockNodeViewDraw extends GestureLockNodeView {
      * @param currentStatus
      * @return 画笔颜色
      */
-    private int getPaintColor(@Statu int currentStatus) {
+    private int getPaintColor(@State int currentStatus) {
         int paintColor = mColorDefault;
         switch (currentStatus) {
-            case Statu.STATU_TOUCH_MOVE:
+            case State.STATE_TOUCH_MOVE:
                 paintColor = mColorMoving;
                 break;
-            case Statu.STATU_TOUCH_UP:
+            case State.STATE_TOUCH_UP:
                 paintColor = GestureLockViewGroup.isCorrect ? mColorCorrect : mColorIncorrect;
                 break;
-            case Statu.STATU_DEFAULT:
+            case State.STATE_DEFAULT:
                 paintColor = mColorDefault;
                 break;
         }
@@ -114,7 +114,7 @@ public class GestureLockNodeViewDraw extends GestureLockNodeView {
      * @param canvas 旋转好的画布
      */
     @Override
-    protected void drawArrow(Canvas canvas, Paint paint,@Statu int currentStatus) {
+    protected void drawArrow(Canvas canvas, Paint paint,@State int currentState) {
         canvas.drawPath(mArrowPath, paint);
     }
 }

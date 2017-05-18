@@ -59,28 +59,28 @@ public class GestureLockNodeViewImage extends GestureLockNodeView {
     }
 
     @Override
-    protected void doDraw(Canvas canvas, Paint paint, @Statu int currentStatus) {
-        mDrawableBg.setState(getDrawableStatus(currentStatus));
+    protected void doDraw(Canvas canvas, Paint paint, @State int currentState) {
+        mDrawableBg.setState(getDrawableStatus(currentState));
     }
 
     @Override
-    protected void drawArrow(Canvas canvas, Paint paint, @Statu int currentStatus) {
+    protected void drawArrow(Canvas canvas, Paint paint, @State int currentState) {
         mDrawableArrow.draw(canvas);
-        mDrawableArrow.setState(getDrawableStatus(currentStatus));
+        mDrawableArrow.setState(getDrawableStatus(currentState));
     }
 
-    private int[] getDrawableStatus(@Statu int currentStatus) {
+    private int[] getDrawableStatus(@State int currentStatus) {
         int drawableStates[] = stateDefault;
         switch (currentStatus) {
-            case Statu.STATU_DEFAULT: {
+            case State.STATE_DEFAULT: {
                 drawableStates = stateDefault;
             }
             break;
-            case Statu.STATU_TOUCH_MOVE: {
+            case State.STATE_TOUCH_MOVE: {
                 drawableStates = stateMoving;
             }
             break;
-            case Statu.STATU_TOUCH_UP: {
+            case State.STATE_TOUCH_UP: {
                 drawableStates = GestureLockViewGroup.isCorrect ? stateCorrect : stateIncorrect;
             }
             break;

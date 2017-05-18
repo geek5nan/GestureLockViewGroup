@@ -236,7 +236,7 @@ public class GestureLockViewGroup extends RelativeLayout {
             if (!mChoose.contains(cId)) {
                 mChoose.add(cId);
                 mCurrentChooseString = mCurrentChooseString + cId;
-                child.setMode(GestureLockNodeView.Statu.STATU_TOUCH_MOVE);
+                child.setState(GestureLockNodeView.State.STATE_TOUCH_MOVE);
                 // 设置指引线的起点
                 mLastPoint.x = ViewUtil.getCenterX(child);
                 mLastPoint.y = ViewUtil.getCenterY(child);
@@ -308,7 +308,7 @@ public class GestureLockViewGroup extends RelativeLayout {
     private void setItemModeUp() {
         for (GestureLockNodeView gestureLockNodeView : mGestureLockNodeViews) {
             if (mChoose.contains(gestureLockNodeView.getId())) {
-                gestureLockNodeView.setMode(GestureLockNodeView.Statu.STATU_TOUCH_UP);
+                gestureLockNodeView.setState(GestureLockNodeView.State.STATE_TOUCH_UP);
             }
         }
     }
@@ -371,7 +371,7 @@ public class GestureLockViewGroup extends RelativeLayout {
         mCurrentChooseString = "";
         mPath.reset();
         for (GestureLockNodeView gestureLockNodeView : mGestureLockNodeViews) {
-            gestureLockNodeView.setMode(GestureLockNodeView.Statu.STATU_DEFAULT);
+            gestureLockNodeView.setState(GestureLockNodeView.State.STATE_DEFAULT);
             gestureLockNodeView.hideArrow();
         }
     }
@@ -438,9 +438,10 @@ public class GestureLockViewGroup extends RelativeLayout {
     /**
      * 重置手势锁及密码
      */
-    public void resetView() {
+    public void resetViewAndCleanPassword() {
         reset();
         invalidate();
+        getPasswordProvider().removePassword();
     }
 
 }

@@ -52,8 +52,7 @@ public class GestureLockActivity extends AppCompatActivity {
             public void onGestureVerify(boolean matched, int retryTimes) {
                 if (matched) {
                     if (mState == STATE.RESET) {
-                        mGestureLockViewGroup.getPasswordProvider().removePassword();
-                        mGestureLockViewGroup.resetView();
+                        mGestureLockViewGroup.resetViewAndCleanPassword();
                         mPromptText.setText("请绘制新手势密码！");
                         ToastUtil.showShort("此时点击返回键可关闭手势锁");
                     }else {
@@ -105,7 +104,12 @@ public class GestureLockActivity extends AppCompatActivity {
                 }
             }
         });
-        mGestureLockViewGroup.setNodeViewProvider(new NodeViewProviderImage.Builder(this).build());
+        mGestureLockViewGroup.setNodeViewProvider(new NodeViewProviderImage.Builder(this)
+                .setLockIconBgDrawables(R.drawable.lock_icon_bg_default,R.drawable.lock_icon_bg_moving,
+                        R.drawable.lock_icon_bg_incorrect,R.drawable.lock_icon_bg_correct)
+                .setLockIconArrowDrawables(R.drawable.lock_icon_arrow_default,R.drawable.lock_icon_arrow_moving,
+                        R.drawable.lock_icon_arrow_incorrect,R.drawable.lock_icon_arrow_correct)
+                .build());
     }
 
     private void initView() {
