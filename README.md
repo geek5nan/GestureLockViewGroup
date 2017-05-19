@@ -1,4 +1,5 @@
 ## GestureLockViewGroup
+[![](https://jitpack.io/v/geek5nan/GestureLockViewGroup.svg)](https://jitpack.io/#geek5nan/GestureLockViewGroup)
 
 ### 介绍
 **GestureLockViewGroup**是一个基于[GestureLock](https://github.com/autume/GestureLock.git)重构的手势锁控件，目的是打造一个高内聚，低耦合，易于扩展的控件
