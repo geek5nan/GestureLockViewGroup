@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.devwu.common.utils.ViewUtil;
 import com.devwu.gesturelockviewgroup.GestureLockViewGroup;
 import com.devwu.gesturelockviewgroupdemo.R;
+import com.devwu.utils.ViewUtil;
 
 public class MainActivity extends AppCompatActivity implements TextView.OnClickListener {
 

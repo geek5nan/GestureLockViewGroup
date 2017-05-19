@@ -13,8 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.devwu.common.utils.AppUtils;
-import com.devwu.common.utils.ViewUtil;
 import com.devwu.gesturelockviewgroup.listener.SettingListener;
 import com.devwu.gesturelockviewgroup.listener.VerifyListener;
 import com.devwu.gesturelockviewgroup.nodeview.GestureLockNodeView;
@@ -22,6 +20,8 @@ import com.devwu.gesturelockviewgroup.provider.nodeview.NodeViewProvider;
 import com.devwu.gesturelockviewgroup.provider.nodeview.NodeViewProviderDraw;
 import com.devwu.gesturelockviewgroup.provider.password.PasswordProvider;
 import com.devwu.gesturelockviewgroup.provider.password.PasswordProviderDefault;
+import com.devwu.utils.AppUtil;
+import com.devwu.utils.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -430,7 +430,7 @@ public class GestureLockViewGroup extends RelativeLayout {
      */
     public static PasswordProvider getPasswordProvider() {
         if (sPasswordProvider == null) {
-            sPasswordProvider = PasswordProviderDefault.getInstance(AppUtils.getApplicationContext());
+            sPasswordProvider = PasswordProviderDefault.getInstance(AppUtil.getApplicationContext());
         }
         return sPasswordProvider;
     }

@@ -195,7 +195,7 @@ allprojects {
 ````Java
 dependencies {
         ...
-        compile 'com.github.geek5nan:GestureLockViewGroup:1.0'
+        compile 'com.github.geek5nan:GestureLockViewGroup:1.0.1'
 }
 ````
 ### 鸣谢
