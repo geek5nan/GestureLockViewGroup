@@ -3,7 +3,7 @@ package com.devwu.gesturelockviewgroup.provider.password;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.devwu.common.utils.SharePreferenceUtil;
+import com.devwu.utils.SharePreferenceUtil;
 
 
 /**

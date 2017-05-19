@@ -8,12 +8,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.devwu.common.utils.ToastUtil;
 import com.devwu.gesturelockviewgroup.GestureLockViewGroup;
 import com.devwu.gesturelockviewgroup.listener.SettingListener;
 import com.devwu.gesturelockviewgroup.listener.VerifyListener;
 import com.devwu.gesturelockviewgroup.provider.nodeview.NodeViewProviderImage;
 import com.devwu.gesturelockviewgroupdemo.R;
+import com.devwu.utils.ToastUtil;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
